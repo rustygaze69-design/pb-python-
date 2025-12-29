@@ -135,22 +135,36 @@ And that’s allowed.
 </div>
 
 <script>
-const answers = ['footsteps'];
-const images = ['assets/images/her1.jpg', 'assets/images/her2.jpg', 'assets/images/her3.jpg', 'assets/images/her4.jpg', 'assets/images/her5.jpg'];
+const answers = {correct_answers};
+const images = {reveal_images};
+
+let slideshowStarted = false;
+let slideshowInterval = null;
+
+function startSlideshow() {
+  if (slideshowStarted) return;   // prevent duplicates
+  slideshowStarted = true;
+
+  const img = document.getElementById("slide");
+
+  // show first image immediately
+  img.src = images[Math.floor(Math.random() * images.length)];
+
+  slideshowInterval = setInterval(() => {
+    img.src = images[Math.floor(Math.random() * images.length)];
+  }, 2000);
+}
 
 function unlock() {
- let v = document.getElementById("ans").value.toLowerCase();
- if(answers.includes(v)) {
-  document.getElementById("reveal").style.display="block";
-  document.getElementById("wrong").style.display="none";
-  setInterval(()=>{
-    document.getElementById("slide").src =
-    images[Math.floor(Math.random()*images.length)];
-  },2000);
- } else {
-  document.getElementById("wrong").style.display="block";
-  document.getElementById("msg").innerHTML="Wrong password";
- }
+  const v = document.getElementById("ans").value.toLowerCase().trim();
+
+  if (answers.includes(v)) {
+    document.getElementById("reveal").style.display = "block";
+    document.getElementById("wrong").style.display = "none";
+    startSlideshow();
+  } else {
+    document.getElementById("wrong").style.display = "block";
+  }
 }
 </script>
 
