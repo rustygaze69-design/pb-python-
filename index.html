@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>PB1</title>
+
+<style>
+body {
+    background:#0f172a;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+}
+
+.hero img {
+    width:45%;
+    border-radius:16px;
+}
+
+.section {
+    background:#1e293b;
+    padding:30px;
+    margin:40px auto;
+    width:80%;
+    border-radius:16px;
+}
+
+.acronym {
+    background:linear-gradient(135deg,#2b0000,#0a0000);
+    padding:30px;
+    margin:40px auto;
+    width:70%;
+    border-radius:20px;
+    text-align:left;
+}
+
+.ac-row {
+    display:flex;
+    align-items:center;
+    font-size:26px;
+    margin-bottom:12px;
+}
+
+.ac-letter {
+    font-size:42px;
+    color:#ff4d4d;
+    width:40px;
+}
+
+.ac-word {
+    color:#ffe5e5;
+}
+
+#wrong {
+    display:none;
+    width:220px;
+    margin-top:15px;
+}
+
+#reveal {
+    display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Hey Sleepy Head</h1>
+<p>There is something I want to tell you.</p>
+
+<div class="hero">
+<img src="assets/images/hero.gif">
+<img src="assets/images/hero.jpg">
+</div>
+
+<div class="acronym">
+
+    <div class="ac-row">
+        <div class="ac-letter">P</div>
+        <div class="ac-word">Power</div>
+    </div>
+    
+    <div class="ac-row">
+        <div class="ac-letter">O</div>
+        <div class="ac-word">Of</div>
+    </div>
+    
+    <div class="ac-row">
+        <div class="ac-letter">O</div>
+        <div class="ac-word">One</div>
+    </div>
+    
+    <div class="ac-row">
+        <div class="ac-letter">N</div>
+        <div class="ac-word">Night</div>
+    </div>
+    
+    <div class="ac-row">
+        <div class="ac-letter">A</div>
+        <div class="ac-word">Alluring</div>
+    </div>
+    
+    <div class="ac-row">
+        <div class="ac-letter">M</div>
+        <div class="ac-word">Minds</div>
+    </div>
+    
+</div>
+
+<div class="section">
+<h2>POONAM</h2>
+<p>
+You don’t have to be okay all the time.
+Some days are heavy.
+And that’s allowed.
+</p>
+</div>
+
+<div class="section">
+<h2>MBA life is deadlines pretending to be ambition.</h2>
+</div>
+
+<div class="section">
+<p>The more you take, the more you leave behind. What am I?</p>
+<input id="ans">
+<button onclick="unlock()">Unlock</button>
+<p id="msg"></p>
+<img id="wrong" src="assets/images/wrong.gif">
+</div>
+
+<div id="reveal">
+<img id="slide" width="300">
+<h2>You unlocked this because you actually tried.</h2>
+</div>
+
+<script>
+const answers = ['footsteps'];
+const images = ['assets/images/her1.jpg', 'assets/images/her2.jpg', 'assets/images/her3.jpg', 'assets/images/her4.jpg', 'assets/images/her5.jpg'];
+
+function unlock() {
+ let v = document.getElementById("ans").value.toLowerCase();
+ if(answers.includes(v)) {
+  document.getElementById("reveal").style.display="block";
+  document.getElementById("wrong").style.display="none";
+  setInterval(()=>{
+    document.getElementById("slide").src =
+    images[Math.floor(Math.random()*images.length)];
+  },2000);
+ } else {
+  document.getElementById("wrong").style.display="block";
+  document.getElementById("msg").innerHTML="Wrong password";
+ }
+}
+</script>
+
+</body>
+</html>
