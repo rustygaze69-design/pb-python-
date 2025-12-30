@@ -1,118 +1,238 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>PB1</title>
 
 <style>
+/* ===== BASE ===== */
 body {
-    background:#0f172a;
-    color:white;
-    font-family:Arial;
-    text-align:center;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: radial-gradient(circle at top, #111827, #020617);
+    color: #e5e7eb;
+    text-align: center;
+    overflow-x: hidden;
 }
 
-.hero img {
-    width:45%;
-    border-radius:16px;
+/* ===== HERO ===== */
+.hero {
+    padding: 60px 20px 30px;
 }
 
-.section {
-    background:#1e293b;
-    padding:30px;
-    margin:40px auto;
-    width:80%;
-    border-radius:16px;
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    animation: fadeDown 1s ease;
 }
 
+.hero p {
+    opacity: 0.8;
+    animation: fadeDown 1.2s ease;
+}
+
+.hero-media {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.hero-media img {
+    width: 42%;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    animation: float 6s ease-in-out infinite;
+}
+
+/* ===== POONAM ACRONYM ===== */
 .acronym {
-    background:linear-gradient(135deg,#2b0000,#0a0000);
-    padding:30px;
-    margin:40px auto;
-    width:70%;
-    border-radius:20px;
-    text-align:left;
+    background: linear-gradient(135deg, #2b0000, #0a0000);
+    padding: 40px;
+    margin: 70px auto;
+    width: 70%;
+    border-radius: 28px;
+    text-align: left;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.7);
 }
 
 .ac-row {
-    display:flex;
-    align-items:center;
-    font-size:26px;
-    margin-bottom:12px;
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    margin-bottom: 14px;
+    animation: fadeLeft 0.8s ease forwards;
 }
 
 .ac-letter {
-    font-size:42px;
-    color:#ff4d4d;
-    width:40px;
+    font-size: 44px;
+    font-weight: bold;
+    color: #ff4d4d;
+    width: 50px;
+    text-shadow: 0 0 12px rgba(255,77,77,0.6);
 }
 
 .ac-word {
-    color:#ffe5e5;
+    color: #ffe5e5;
 }
 
+/* ===== CARD SECTIONS ===== */
+.card {
+    background: linear-gradient(180deg, #1e293b, #020617);
+    padding: 35px;
+    margin: 60px auto;
+    width: 75%;
+    border-radius: 24px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+    animation: fadeUp 1s ease;
+}
+
+input {
+    padding: 12px;
+    width: 60%;
+    border-radius: 10px;
+    border: none;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+button {
+    margin-top: 18px;
+    padding: 12px 28px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    background: linear-gradient(135deg,#7c3aed,#4f46e5);
+    color: white;
+    box-shadow: 0 10px 30px rgba(79,70,229,0.6);
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* ===== WRONG ===== */
 #wrong {
-    display:none;
-    width:220px;
-    margin-top:15px;
+    display: none;
+    margin-top: 20px;
+    animation: shake 0.4s;
 }
 
+/* ===== REVEAL ===== */
 #reveal {
-    display:none;
+    display: none;
+    margin: 80px auto;
+    animation: fadeUp 1.2s ease forwards;
+}
+
+#reveal img {
+    width: 320px;
+    border-radius: 22px;
+    box-shadow: 0 35px 90px rgba(0,0,0,0.8);
+    margin-bottom: 25px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+    from { opacity:0; transform: translateY(40px); }
+    to { opacity:1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+    from { opacity:0; transform: translateY(-30px); }
+    to { opacity:1; transform: translateY(0); }
+}
+
+@keyframes fadeLeft {
+    from { opacity:0; transform: translateX(-30px); }
+    to { opacity:1; transform: translateX(0); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-6px); }
+    100% { transform: translateX(0); }
 }
 </style>
 </head>
 
 <body>
 
-<h1>HEY P00!!</h1>
-<p>NEED Appoinment for a CAALLLL!!.</p>
-
+<!-- HERO -->
 <div class="hero">
-<img src="assets/images/hero.gif">
-<img src="assets/images/hero.jpg">
+    <h1>Hey POOOOOOO!!!</h1>
+    <p>NEED appointment for a CALL !!</p>
+
+    <div class="hero-media">
+        <img src="assets/images/hero.gif">
+        <img src="assets/images/hero.jpg">
+    </div>
 </div>
 
+<!-- POONAM ACRONYM -->
 <div class="acronym">
-  <div class="ac-row"><div class="ac-letter">P</div><div class="ac-word">ower</div></div>
-  <div class="ac-row"><div class="ac-letter">O</div><div class="ac-word">f</div></div>
-  <div class="ac-row"><div class="ac-letter">O</div><div class="ac-word">ne</div></div>
-  <div class="ac-row"><div class="ac-letter">N</div><div class="ac-word">ight</div></div>
-  <div class="ac-row"><div class="ac-letter">A</div><div class="ac-word">lluring</div></div>
-  <div class="ac-row"><div class="ac-letter">M</div><div class="ac-word">inds</div></div>
+    <div class="ac-row"><div class="ac-letter">P</div><div class="ac-word">Power</div></div>
+    <div class="ac-row"><div class="ac-letter">O</div><div class="ac-word">Of</div></div>
+    <div class="ac-row"><div class="ac-letter">O</div><div class="ac-word">One</div></div>
+    <div class="ac-row"><div class="ac-letter">N</div><div class="ac-word">Night</div></div>
+    <div class="ac-row"><div class="ac-letter">A</div><div class="ac-word">Alluring</div></div>
+    <div class="ac-row"><div class="ac-letter">M</div><div class="ac-word">Minds</div></div>
 </div>
 
-<div class="section">
-<h2>POONAM</h2>
-<p>
-You don’t have to be okay all the time.
-Some days are heavy.
-And that’s allowed.
-</p>
+<!-- POONAM TEXT -->
+<div class="card">
+    <h2>POONAM</h2>
+    <p>
+        You don’t have to be okay all the time.<br>
+        Some days are heavy.<br>
+        And that’s allowed.
+    </p>
 </div>
 
-<div class="section">
-<h2>MBA life is deadlines pretending to be ambition.</h2>
+<!-- RIDDLE -->
+<div class="card">
+    <p id="riddle"></p>
+    <input id="ans" placeholder="One word answer">
+    <br>
+    <button onclick="unlock()">OHH YEAAAA</button>
+    <p id="msg"></p>
+    <img id="wrong" src="assets/images/wrong.gif" width="220">
 </div>
 
-<div class="section">
-<p id="riddle">
-The more you take, the more you leave behind. What am I?
-</p>
-
-<input id="ans">
-<button onclick="unlock()">Unlock</button>
-<p id="msg"></p>
-<img id="wrong" src="assets/images/wrong.gif">
-</div>
-
+<!-- REVEAL -->
 <div id="reveal">
-<img id="slide" width="300">
-<h2>You unlocked this because you actually tried.</h2>
+    <img id="slide">
+    <h2>KYA BAAT</h2>
 </div>
 
 <script>
-// ✅ THESE MUST BE REAL JS VALUES (NOT PYTHON)
-const answers = ["footsteps"];
+/* ===== DAILY RIDDLE (AUTO CHANGES BY DATE) ===== */
+const riddles = [
+  { q: "I speak without a mouth and hear without ears. What am I?", a: "echo" },
+  { q: "Whats you fav thing to do in home ?", a: "sleeping" },
+  { q: "I go up but never come down. What am I?", a: "age" },
+  { q: "I have keys but no locks. What am I?", a: "keyboard" },
+  { q: "What has a head and a tail but no body?", a: "coin" }
+];
+
+// Pick riddle based on day number (daily change)
+const todayIndex = new Date().getDate() % riddles.length;
+const todayRiddle = riddles[todayIndex];
+
+document.getElementById("riddle").innerText = todayRiddle.q;
+
+/* ===== SLIDESHOW ===== */
 const images = [
   "assets/images/her1.jpg",
   "assets/images/her2.jpg",
@@ -123,29 +243,25 @@ const images = [
 
 let started = false;
 
-function startSlideshow() {
-  if (started) return;
-  started = true;
-
-  const img = document.getElementById("slide");
-  img.src = images[Math.floor(Math.random() * images.length)];
-
-  setInterval(() => {
-    img.src = images[Math.floor(Math.random() * images.length)];
-  }, 2000);
-}
-
 function unlock() {
-  const v = document.getElementById("ans").value.toLowerCase().trim();
+    const v = document.getElementById("ans").value.toLowerCase().trim();
 
-  if (answers.includes(v)) {
-    document.getElementById("reveal").style.display = "block";
-    document.getElementById("wrong").style.display = "none";
-    startSlideshow();
-  } else {
-    document.getElementById("wrong").style.display = "block";
-    document.getElementById("msg").innerText = "Wrong password";
-  }
+    if (v === todayRiddle.a) {
+        document.getElementById("wrong").style.display = "none";
+        document.getElementById("reveal").style.display = "block";
+
+        if (!started) {
+            started = true;
+            const img = document.getElementById("slide");
+            img.src = images[Math.floor(Math.random() * images.length)];
+            setInterval(() => {
+                img.src = images[Math.floor(Math.random() * images.length)];
+            }, 2200);
+        }
+    } else {
+        document.getElementById("wrong").style.display = "block";
+        document.getElementById("msg").innerText = "CMON BAWEEE";
+    }
 }
 </script>
 
