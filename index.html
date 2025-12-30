@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,14 +59,13 @@ body {
 #reveal {
     display:none;
 }
-
 </style>
 </head>
 
 <body>
 
-<h1>Hey Sleepy Head</h1>
-<p>There is something I want to tell you.</p>
+<h1>HEY P00!!</h1>
+<p>NEED Appoinment for a CAALLLL!!.</p>
 
 <div class="hero">
 <img src="assets/images/hero.gif">
@@ -75,37 +73,12 @@ body {
 </div>
 
 <div class="acronym">
-
-    <div class="ac-row">
-        <div class="ac-letter">P</div>
-        <div class="ac-word">Power</div>
-    </div>
-    
-    <div class="ac-row">
-        <div class="ac-letter">O</div>
-        <div class="ac-word">Of</div>
-    </div>
-    
-    <div class="ac-row">
-        <div class="ac-letter">O</div>
-        <div class="ac-word">One</div>
-    </div>
-    
-    <div class="ac-row">
-        <div class="ac-letter">N</div>
-        <div class="ac-word">Night</div>
-    </div>
-    
-    <div class="ac-row">
-        <div class="ac-letter">A</div>
-        <div class="ac-word">Alluring</div>
-    </div>
-    
-    <div class="ac-row">
-        <div class="ac-letter">M</div>
-        <div class="ac-word">Minds</div>
-    </div>
-    
+  <div class="ac-row"><div class="ac-letter">P</div><div class="ac-word">ower</div></div>
+  <div class="ac-row"><div class="ac-letter">O</div><div class="ac-word">f</div></div>
+  <div class="ac-row"><div class="ac-letter">O</div><div class="ac-word">ne</div></div>
+  <div class="ac-row"><div class="ac-letter">N</div><div class="ac-word">ight</div></div>
+  <div class="ac-row"><div class="ac-letter">A</div><div class="ac-word">lluring</div></div>
+  <div class="ac-row"><div class="ac-letter">M</div><div class="ac-word">inds</div></div>
 </div>
 
 <div class="section">
@@ -122,7 +95,10 @@ And that’s allowed.
 </div>
 
 <div class="section">
-<p>The more you take, the more you leave behind. What am I?</p>
+<p id="riddle">
+The more you take, the more you leave behind. What am I?
+</p>
+
 <input id="ans">
 <button onclick="unlock()">Unlock</button>
 <p id="msg"></p>
@@ -135,22 +111,26 @@ And that’s allowed.
 </div>
 
 <script>
-const answers = {correct_answers};
-const images = {reveal_images};
+// ✅ THESE MUST BE REAL JS VALUES (NOT PYTHON)
+const answers = ["footsteps"];
+const images = [
+  "assets/images/her1.jpg",
+  "assets/images/her2.jpg",
+  "assets/images/her3.jpg",
+  "assets/images/her4.jpg",
+  "assets/images/her5.jpg"
+];
 
-let slideshowStarted = false;
-let slideshowInterval = null;
+let started = false;
 
 function startSlideshow() {
-  if (slideshowStarted) return;   // prevent duplicates
-  slideshowStarted = true;
+  if (started) return;
+  started = true;
 
   const img = document.getElementById("slide");
-
-  // show first image immediately
   img.src = images[Math.floor(Math.random() * images.length)];
 
-  slideshowInterval = setInterval(() => {
+  setInterval(() => {
     img.src = images[Math.floor(Math.random() * images.length)];
   }, 2000);
 }
@@ -164,6 +144,7 @@ function unlock() {
     startSlideshow();
   } else {
     document.getElementById("wrong").style.display = "block";
+    document.getElementById("msg").innerText = "Wrong password";
   }
 }
 </script>
